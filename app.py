@@ -1,70 +1,108 @@
-# Dictionnaires simulant une base de données
-utilisateurs = {
-    1: {"nom": "Alice", "photo": None},
-    2: {"nom": "Bob", "photo": None},
+from dataclasses import dataclass
+from typing import Optional, Tuple, Dict
+import os
+
+# =========================
+# Modèle de données
+# =========================
+
+@dataclass
+class Sportif:
+    nom: str | None = None
+    prenom: str | None = None
+    sexe: str | None = None
+    age: int | None = None
+    nationalite: str | None = None
+    localisation: Optional[Tuple[float, float]] = None  # (lat, lon)
+    distance_rencontre: int | None = None
+    niveau_sports: dict | None = None
+    attentes: list[str] | None = None
+    genre_recherche: str | None = None
+    min_age_recherchee: int | None = None
+    max_age_recherchee: int | None = None
+
+    # Photo de profil stockée en mémoire (bytes)
+    photo_profil: bytes | None = None
+
+
+# =========================
+# "Base de données" en mémoire
+# =========================
+
+sportifs: Dict[int, Sportif] = {
+    1: Sportif(prenom="Alice", nom="Martin", age=24),
+    2: Sportif(prenom="Bob", nom="Durand", age=28),
 }
 
-images = {}  # stockage en mémoire des fichiers binaires
+# =========================
+# Fonctions utilitaires
+# =========================
 
-
-def est_image(fichier_bytes: bytes) -> bool:
-    """Vérifie si le contenu correspond à une image PNG ou JPEG."""
+def est_image(contenu: bytes) -> bool:
+    """Reconnaissance ultra-simple: PNG ou JPEG via signatures magiques."""
     return (
-        fichier_bytes.startswith(b"\x89PNG") or  # PNG
-        fichier_bytes.startswith(b"\xFF\xD8")    # JPEG
+        contenu.startswith(b"\x89PNG") or   # PNG
+        contenu.startswith(b"\xFF\xD8")     # JPEG
     )
 
-
-def ajouter_photo_profil(id_utilisateur: int, fichier_bytes: bytes) -> bool:
-    """Ajoute une photo de profil si l'utilisateur existe et que le fichier est une image."""
-    if id_utilisateur not in utilisateurs:
-        print("❌ Utilisateur inexistant.")
+def ajouter_photo_profil(sportif_id: int, chemin_fichier: str) -> bool:
+    """
+    Lit une image locale et la stocke dans Sportif.photo_profil.
+    Retourne True si succès, False sinon.
+    """
+    sportif = sportifs.get(sportif_id)
+    if not sportif:
+        print("❌ Sportif introuvable.")
         return False
 
-    if not est_image(fichier_bytes):
-        print("❌ Le fichier n'est pas une image PNG ou JPEG valide.")
+    if not os.path.exists(chemin_fichier):
+        print(f"❌ Fichier '{chemin_fichier}' introuvable.")
         return False
 
-    images[id_utilisateur] = fichier_bytes
-    utilisateurs[id_utilisateur]["photo"] = f"image_{id_utilisateur}"
-    print("✅ Photo ajoutée avec succès pour l'utilisateur", utilisateurs[id_utilisateur]["nom"])
+    # Lecture du fichier binaire
+    with open(chemin_fichier, "rb") as f:
+        contenu = f.read()
+
+    if not est_image(contenu):
+        print("❌ Le fichier n'est pas reconnu comme image PNG/JPEG.")
+        return False
+
+    sportif.photo_profil = contenu
+    print(f"✅ Photo de profil ajoutée pour {sportif.prenom} {sportif.nom}.")
     return True
 
+# =========================
+# Tests
+# =========================
 
-# ---------------------------
-# Tests avec fichiers réels
-# ---------------------------
-def test_fichier_existant():
-    """Test avec un fichier image existant."""
-    chemin = "uploads/test_profil.png"  # mets ici le nom de ton fichier image réel (dans le même dossier)
-    try:
-        with open(chemin, "rb") as f:
-            contenu = f.read()
-    except FileNotFoundError:
-        print(f"❌ Fichier '{chemin}' introuvable pour le test.")
-        return
+def test_photo_existe():
+    """Test avec une vraie image locale existante."""
+    print("— Test : fichier existant —")
+    chemin = "uploads/test_profil.png"   # mets un vrai PNG/JPG ici
 
-    ok = ajouter_photo_profil(1, contenu)
-    if ok and utilisateurs[1]["photo"] == "image_1":
-        print("🎯 TEST RÉUSSI : image existante bien ajoutée.\n")
+    # Réinitialise l'état du sportif pour un test propre
+    sportifs[1].photo_profil = None
+
+    ok = ajouter_photo_profil(1, chemin)
+    if ok and sportifs[1].photo_profil:
+        print("🎯 TEST RÉUSSI : la photo de profil a bien été ajoutée.\n")
     else:
-        print("❌ TEST ÉCHOUÉ avec image existante.\n")
+        print("❌ TEST ÉCHOUÉ : la photo n’a pas été enregistrée.\n")
 
+def test_photo_absente():
+    """Test avec un fichier inexistant (doit échouer sans modifier l'état)."""
+    print("— Test : fichier non existant —")
+    chemin = "fichier_inexistant.png"
 
-def test_fichier_non_existant():
-    """Test avec un fichier qui n'existe pas."""
-    chemin = "fichier_inexistant.png"  # ce fichier ne doit pas exister
-    try:
-        with open(chemin, "rb") as f:
-            contenu = f.read()
-    except FileNotFoundError:
-        print(f"✅ TEST RÉUSSI : le fichier '{chemin}' est bien détecté comme manquant.\n")
-        return
+    # Réinitialise l'état pour éviter le faux positif
+    sportifs[1].photo_profil = None
 
-    # Si le fichier existe par erreur :
-    print(f"⚠️ Le fichier '{chemin}' existe, le test est invalide.\n")
-
+    ok = ajouter_photo_profil(1, chemin)
+    if not ok and sportifs[1].photo_profil is None:
+        print("🎯 TEST RÉUSSI : fichier manquant bien détecté, aucune photo enregistrée.\n")
+    else:
+        print("❌ TEST ÉCHOUÉ : état incorrect après tentative avec fichier absent.\n")
 
 if __name__ == "__main__":
-    test_fichier_existant()
-    test_fichier_non_existant()
+    test_photo_existe()
+    test_photo_absente()
