@@ -29,23 +29,22 @@ def ajouter_photo_profil(sportif_id: int, chemin_fichier: str) -> bool:
     """
     sportif = sportifs.get(sportif_id)
     if not sportif:
-        print("❌ Sportif introuvable.")
+        print("Sportif introuvable.")
         return False
 
     if not os.path.exists(chemin_fichier):
-        print(f"❌ Fichier '{chemin_fichier}' introuvable.")
+        print(f"Fichier '{chemin_fichier}' introuvable.")
         return False
 
-    # Lecture du fichier binaire
     with open(chemin_fichier, "rb") as f:
         contenu = f.read()
 
     if not est_image(contenu):
-        print("❌ Le fichier n'est pas reconnu comme image PNG/JPEG.")
+        print("Le fichier n'est pas reconnu comme image PNG/JPEG.")
         return False
 
     sportif.photo_profil = contenu
-    print(f"✅ Photo de profil ajoutée pour {sportif.prenom} {sportif.nom}.")
+    print(f"Photo de profil ajoutée pour {sportif.prenom} {sportif.nom}.")
     return True
 
 # =========================
@@ -55,30 +54,28 @@ def ajouter_photo_profil(sportif_id: int, chemin_fichier: str) -> bool:
 def test_photo_existe():
     """Test avec une vraie image locale existante."""
     print("— Test : fichier existant —")
-    chemin = "uploads/test_profil.png"   # mets un vrai PNG/JPG ici
+    chemin = "uploads/test_profil.png"
 
-    # Réinitialise l'état du sportif pour un test propre
     sportifs[1].photo_profil = None
 
     ok = ajouter_photo_profil(1, chemin)
     if ok and sportifs[1].photo_profil:
-        print("🎯 TEST RÉUSSI : la photo de profil a bien été ajoutée.\n")
+        print("TEST RÉUSSI : la photo de profil a bien été ajoutée.\n")
     else:
-        print("❌ TEST ÉCHOUÉ : la photo n’a pas été enregistrée.\n")
+        print("TEST ÉCHOUÉ : la photo n’a pas été enregistrée.\n")
 
 def test_photo_absente():
     """Test avec un fichier inexistant (doit échouer sans modifier l'état)."""
     print("— Test : fichier non existant —")
     chemin = "fichier_inexistant.png"
 
-    # Réinitialise l'état pour éviter le faux positif
     sportifs[1].photo_profil = None
 
     ok = ajouter_photo_profil(1, chemin)
     if not ok and sportifs[1].photo_profil is None:
-        print("🎯 TEST RÉUSSI : fichier manquant bien détecté, aucune photo enregistrée.\n")
+        print("TEST RÉUSSI : fichier manquant bien détecté, aucune photo enregistrée.\n")
     else:
-        print("❌ TEST ÉCHOUÉ : état incorrect après tentative avec fichier absent.\n")
+        print("TEST ÉCHOUÉ : état incorrect après tentative avec fichier absent.\n")
 
 if __name__ == "__main__":
     test_photo_existe()
