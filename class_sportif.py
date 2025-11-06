@@ -1,4 +1,5 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+from typing import Optional, Tuple
 
 @dataclass
 class Sportif:
@@ -14,6 +15,6 @@ class Sportif:
     genre_recherche: str = None
     min_age_recherchee: int = None
     max_age_recherchee: int = None
-    photo_profil: bytes | None = None
-
+    photo_profil: bytes = None
+    galerie_photos: dict[str, bytes] = field(default_factory=dict)
 
