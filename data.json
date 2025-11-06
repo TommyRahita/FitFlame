@@ -140,5 +140,28 @@
     "min_age_recherchee": 25,
     "max_age_recherchee": 35,
     "photo_profil": "bytes_dummy_replaced"
+  },
+  {
+    "nom": "Dupond",
+    "prenom": "Pierre",
+    "sexe": "Homme",
+    "age": 30,
+    "nationalite": "Française",
+    "localisalisation": [
+      48.8,
+      2.3
+    ],
+    "distance_rencontre": 20,
+    "niveau_sports": {
+      "Judo": "Expert"
+    },
+    "attentes": [
+      "Entraînement intensif"
+    ],
+    "genre_recherche": "Femme",
+    "min_age_recherchee": 25,
+    "max_age_recherchee": 35,
+    "photo_profil": "bytes_dummy_replaced",
+    "galerie_photos": {}
   }
 ]
