@@ -5,7 +5,6 @@ import json
 chemin_actuel = os.getcwd()
 sys.path.append(chemin_actuel)
 
-import pandas as pd
 from class_sportif import *
 
 def func_stocker_sportif(nouveau_sportif: Sportif):
