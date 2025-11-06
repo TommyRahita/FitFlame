@@ -1,5 +1,10 @@
-from dataclasses import dataclass, field
+import sys
+import os
+
+chemin_actuel = os.getcwd()
+sys.path.append(chemin_actuel)
 from typing import Optional, Tuple
+from dataclasses import dataclass
 
 @dataclass
 class Sportif:
@@ -16,5 +21,4 @@ class Sportif:
     min_age_recherchee: int = None
     max_age_recherchee: int = None
     photo_profil: bytes = None
-    galerie_photos: dict[str, bytes] = field(default_factory=dict)
 
