@@ -1,10 +1,10 @@
 import sys
 import os
-
 chemin_actuel = os.getcwd()
 sys.path.append(chemin_actuel)
+
+from dataclasses import dataclass, field
 from typing import Optional, Tuple
-from dataclasses import dataclass
 
 @dataclass
 class Sportif:
@@ -13,12 +13,12 @@ class Sportif:
     sexe: str = None
     age: int = None
     nationalite: str = None
-    localisalisation: list[float,float] = None
+    localisalisation: list[float, float] = None
     distance_rencontre: int = None
     niveau_sports: dict = None
     attentes: list[str] = None
     genre_recherche: str = None
     min_age_recherchee: int = None
     max_age_recherchee: int = None
-    photo_profil: bytes = None
-
+    photo_profil: bytes | None = None
+    galerie_photos: dict[str, bytes] = field(default_factory=dict)
