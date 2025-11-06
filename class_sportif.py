@@ -1,0 +1,18 @@
+from dataclasses import dataclass
+
+@dataclass
+class Sportif:
+    nom: str = None
+    prenom: str = None
+    sexe: str = None
+    age: int = None
+    nationalite: str = None
+    localisalisation: list[float,float] = None
+    distance_rencontre: int = None
+    niveau_sports: dict = None
+    attentes: list[str] = None
+    genre_recherche: str = None
+    min_age_recherchee: int = None
+    max_age_recherchee: int = None
+
+
