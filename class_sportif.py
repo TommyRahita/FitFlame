@@ -1,3 +1,9 @@
+import sys
+import os
+
+chemin_actuel = os.getcwd()
+sys.path.append(chemin_actuel)
+
 from dataclasses import dataclass
 
 @dataclass

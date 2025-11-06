@@ -1,5 +1,9 @@
 import sys
-sys.path.append(r"C:\Users\ythollet\Documents\GitHub\FitFlame")
+import os
+
+chemin_actuel = os.getcwd()
+sys.path.append(chemin_actuel)
+
 from class_sportif import *
 
 
