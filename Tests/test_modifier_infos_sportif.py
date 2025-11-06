@@ -1,5 +1,10 @@
 import sys
-sys.path.append(r"C:\Users\ythollet\Documents\GitHub\FitFlame")
+import os
+
+chemin_actuel = os.getcwd()
+chemin_parent = os.path.dirname(chemin_actuel)
+sys.path.append(chemin_parent)
+
 from class_sportif import *
 from modifier_infos_sportif import *
 
