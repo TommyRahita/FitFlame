@@ -1,29 +1,6 @@
-from dataclasses import dataclass
 from typing import Optional, Tuple, Dict
 import os
-
-# =========================
-# Modèle de données
-# =========================
-
-@dataclass
-class Sportif:
-    nom: str | None = None
-    prenom: str | None = None
-    sexe: str | None = None
-    age: int | None = None
-    nationalite: str | None = None
-    localisation: Optional[Tuple[float, float]] = None  # (lat, lon)
-    distance_rencontre: int | None = None
-    niveau_sports: dict | None = None
-    attentes: list[str] | None = None
-    genre_recherche: str | None = None
-    min_age_recherchee: int | None = None
-    max_age_recherchee: int | None = None
-
-    # Photo de profil stockée en mémoire (bytes)
-    photo_profil: bytes | None = None
-
+from class_sportif import Sportif
 
 # =========================
 # "Base de données" en mémoire
