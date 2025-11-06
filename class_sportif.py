@@ -14,6 +14,5 @@ class Sportif:
     genre_recherche: str = None
     min_age_recherchee: int = None
     max_age_recherchee: int = None
-    photo_profil: bytes | None = None
-
+    photo_profil: bytes = None
 
