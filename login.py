@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+from tkinter import ttk
 
 # Liste pour stocker les couples (prénom, mot de passe)
 database = []
@@ -47,6 +48,9 @@ def afficher_bienvenue(prenom):
     age = tk.IntVar()
 
     NATIONALITE = tk.StringVar()
+    SPORT1 = tk.StringVar()
+    SPORT2 = tk.StringVar()
+    SPORT3 = tk.StringVar()
 
 
 
@@ -74,6 +78,26 @@ def afficher_bienvenue(prenom):
     label_nat.place(x=50, y=210)
     entry_nat = tk.Entry(nouvelle_fenetre, textvariable=NATIONALITE, font=("Arial", 8))
     entry_nat.place(x=50, y=230)
+
+    # Variable pour stocker le sport sélectionné
+    SPORTS = ["Football", "Basketball", "Tennis", "Natation", "Rugby", "Cyclisme"]
+
+
+    label_sport1 = tk.Label(nouvelle_fenetre, text="Choisis ton sport préféré:")
+    label_sport1.place(x=250, y=90)
+    entry_sport1 = ttk.Combobox(nouvelle_fenetre, textvariable=SPORT1, values=SPORTS)
+    entry_sport1.place(x=250, y=110)
+
+    label_sport2 = tk.Label(nouvelle_fenetre, text="Choisis ton sport préféré:")
+    label_sport2.place(x=400, y=90)
+    entry_sport2 = ttk.Combobox(nouvelle_fenetre, textvariable=SPORT2, values=SPORTS)
+    entry_sport2.place(x=400, y=110)
+
+    label_sport3 = tk.Label(nouvelle_fenetre, text="Choisis ton sport préféré:")
+    label_sport3.place(x=550, y=90)
+    entry_sport3 = ttk.Combobox(nouvelle_fenetre, textvariable=SPORT3, values=SPORTS)
+    entry_sport3.place(x=550, y=110)
+
 
     # Bouton pour fermer la fenêtre
     button_quitter = tk.Button(nouvelle_fenetre, text="Quitter", command=nouvelle_fenetre.destroy)
