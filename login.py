@@ -56,6 +56,8 @@ def afficher_bienvenue(prenom):
     NIVEAU_SPORT2 = tk.StringVar()
     SPORT3 = tk.StringVar()
     NIVEAU_SPORT3 = tk.StringVar()
+    ATTENTE = tk.StringVar()
+
 
 
 
@@ -96,9 +98,15 @@ def afficher_bienvenue(prenom):
     entry_localisation_Y.place(x=150, y=270)
 
     # Variable pour stocker le sport sélectionné
+    ATTENTES = ["Amitié", "Amour", "Entraînements", "Ne sais pas"]
     SPORTS = ["Football", "Basketball", "Tennis", "Natation", "Rugby", "Cyclisme"]
     NIVEAU = ["Débutant", "Intermédiaire", "Avancé", "Pro"]
 
+
+    label_attentes = tk.Label(nouvelle_fenetre, text="Tu cherches:")
+    label_attentes.place(x=250, y=50)
+    entry_attentes = ttk.Combobox(nouvelle_fenetre, textvariable=ATTENTE, values=ATTENTES, state="normal")
+    entry_attentes.place(x=250, y=70)
 
 
     label_sport1 = tk.Label(nouvelle_fenetre, text="Choisis ton sport préféré:")
@@ -132,6 +140,7 @@ def afficher_bienvenue(prenom):
     label_niveau3.place(x=550, y=130)
     entry_niveau3 = ttk.Combobox(nouvelle_fenetre, textvariable=NIVEAU_SPORT3, values=NIVEAU)
     entry_niveau3.place(x=550, y=150)
+
 
 
     # Bouton pour fermer la fenêtre
