@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+from tkinter import ttk
 
 # Liste pour stocker les couples (prénom, mot de passe)
 database = []
@@ -43,6 +44,16 @@ def afficher_bienvenue(prenom):
 
     NOM = tk.StringVar()
     PRENOM = tk.StringVar()
+    SEXE = tk.StringVar()
+    age = tk.IntVar()
+
+    NATIONALITE = tk.StringVar()
+    SPORT1 = tk.StringVar()
+    NIVEAU_SPORT1 = tk.StringVar()
+    SPORT2 = tk.StringVar()
+    NIVEAU_SPORT2 = tk.StringVar()
+    SPORT3 = tk.StringVar()
+    NIVEAU_SPORT3 = tk.StringVar()
 
 
 
@@ -55,6 +66,60 @@ def afficher_bienvenue(prenom):
     label_nom.place(x=50, y=90)
     entry_nom = tk.Entry(nouvelle_fenetre, textvariable=NOM, font=("Arial", 8))
     entry_nom.place(x=50, y=110)
+
+    label_sexe = tk.Label(nouvelle_fenetre, text="Sexe:")
+    label_sexe.place(x=50, y=130)
+    entry_sexe = tk.Entry(nouvelle_fenetre, textvariable=SEXE, font=("Arial", 8))
+    entry_sexe.place(x=50, y=150)
+
+    label_age = tk.Label(nouvelle_fenetre, text="Age:")
+    label_age.place(x=50, y=170)
+    entry_age = tk.Entry(nouvelle_fenetre, textvariable=age, font=("Arial", 8))
+    entry_age.place(x=50, y=190)
+
+    label_nat = tk.Label(nouvelle_fenetre, text="Nationalité:")
+    label_nat.place(x=50, y=210)
+    entry_nat = tk.Entry(nouvelle_fenetre, textvariable=NATIONALITE, font=("Arial", 8))
+    entry_nat.place(x=50, y=230)
+
+    # Variable pour stocker le sport sélectionné
+    SPORTS = ["Football", "Basketball", "Tennis", "Natation", "Rugby", "Cyclisme"]
+    NIVEAU = ["Débutant", "Intermédiaire", "Avancé", "Pro"]
+
+
+
+    label_sport1 = tk.Label(nouvelle_fenetre, text="Choisis ton sport préféré:")
+    label_sport1.place(x=250, y=90)
+    entry_sport1 = ttk.Combobox(nouvelle_fenetre, textvariable=SPORT1, values=SPORTS, state="normal")
+    entry_sport1.place(x=250, y=110)
+
+    label_niveau2 = tk.Label(nouvelle_fenetre, text="Choisis ton niveau:")
+    label_niveau2.place(x=250, y=130)
+    entry_niveau2 = ttk.Combobox(nouvelle_fenetre, textvariable=NIVEAU_SPORT1, values=NIVEAU, state="normal")
+    entry_niveau2.place(x=250, y=150)
+
+
+    label_sport2 = tk.Label(nouvelle_fenetre, text="Choisis ton sport préféré:")
+    label_sport2.place(x=400, y=90)
+    entry_sport2 = ttk.Combobox(nouvelle_fenetre, textvariable=SPORT2, values=SPORTS, state="normal")
+    entry_sport2.place(x=400, y=110)
+
+    label_niveau2 = tk.Label(nouvelle_fenetre, text="Choisis ton niveau:")
+    label_niveau2.place(x=400, y=130)
+    entry_niveau2 = ttk.Combobox(nouvelle_fenetre, textvariable=NIVEAU_SPORT2, values=NIVEAU, state="normal")
+    entry_niveau2.place(x=400, y=150)
+
+
+    label_sport3 = tk.Label(nouvelle_fenetre, text="Choisis ton sport préféré:")
+    label_sport3.place(x=550, y=90)
+    entry_sport3 = ttk.Combobox(nouvelle_fenetre, textvariable=SPORT3, values=SPORTS, state="normal")
+    entry_sport3.place(x=550, y=110)
+
+    label_niveau3 = tk.Label(nouvelle_fenetre, text="Choisis ton niveau:")
+    label_niveau3.place(x=550, y=130)
+    entry_niveau3 = ttk.Combobox(nouvelle_fenetre, textvariable=NIVEAU_SPORT3, values=NIVEAU, state="normal")
+    entry_niveau3.place(x=550, y=150)
+
 
     # Bouton pour fermer la fenêtre
     button_quitter = tk.Button(nouvelle_fenetre, text="Quitter", command=nouvelle_fenetre.destroy)
