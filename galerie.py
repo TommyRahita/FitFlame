@@ -11,8 +11,27 @@ import os
 def _get_sportif(sportifs: Dict[int, Sportif], sportif_id: int) -> Sportif | None:
     return sportifs.get(sportif_id)
 
+def _ensure_galerie(sp: Sportif) -> None:
+    """Assure l'existence de sp.galerie_photos (et du mapping des chemins)."""
+    if not hasattr(sp, "galerie_photos") or sp.galerie_photos is None:
+        sp.galerie_photos = {}
+    if not hasattr(sp, "galerie_paths") or getattr(sp, "galerie_paths") is None:
+        # clé -> chemin d'origine (optionnel)
+        setattr(sp, "galerie_paths", {})
+
 def _est_image(contenu: bytes) -> bool:
-    return contenu.startswith(b"\x89PNG") or contenu.startswith(b"\xFF\xD8")
+    """Détection via signatures magiques: PNG/JPEG/GIF/WebP."""
+    if len(contenu) < 12:
+        return False
+    if contenu.startswith(b"\x89PNG\r\n\x1a\n"):  # PNG
+        return True
+    if contenu[:2] == b"\xFF\xD8":               # JPEG
+        return True
+    if contenu.startswith(b"GIF87a") or contenu.startswith(b"GIF89a"):  # GIF
+        return True
+    if contenu[:4] == b"RIFF" and contenu[8:12] == b"WEBP":  # WebP
+        return True
+    return False
 
 def ajouter_photo_galerie(
     sportifs: Dict[int, Sportif],
@@ -29,63 +48,103 @@ def ajouter_photo_galerie(
         print(f"Fichier '{chemin_fichier}' introuvable.")
         return False
 
-    with open(chemin_fichier, "rb") as f:
-        contenu = f.read()
-
-    if not _est_image(contenu):
-        print("Le fichier n'est pas reconnu comme image PNG/JPEG.")
+    try:
+        with open(chemin_fichier, "rb") as f:
+            contenu = f.read()
+    except Exception as e:
+        print(f"Erreur de lecture du fichier: {e}")
         return False
 
+    if not _est_image(contenu):
+        print("Le fichier n'est pas reconnu comme image PNG/JPEG/GIF/WebP.")
+        return False
+
+    _ensure_galerie(sp)
     key = nom_cle or os.path.basename(chemin_fichier)
     sp.galerie_photos[key] = contenu
+    sp.galerie_paths[key] = chemin_fichier  # on mémorise le chemin d'origine
     print(f"Image ajoutée dans la galerie sous la clé '{key}'.")
     return True
+
+def ecrire_image_galerie_sur_disque(
+    sportifs: Dict[int, Sportif],
+    sportif_id: int,
+    nom_cle: str,
+    chemin_sortie: str,
+) -> bool:
+    """Réécrit une image de la galerie sur disque (preuve de son exploitabilité)."""
+    sp = _get_sportif(sportifs, sportif_id)
+    if not sp:
+        print("Sportif introuvable.")
+        return False
+    _ensure_galerie(sp)
+
+    contenu = sp.galerie_photos.get(nom_cle)
+    if not contenu:
+        print(f"Aucune image sous la clé '{nom_cle}'.")
+        return False
+
+    dossier = os.path.dirname(chemin_sortie)
+    if dossier and not os.path.isdir(dossier):
+        os.makedirs(dossier, exist_ok=True)
+
+    try:
+        with open(chemin_sortie, "wb") as f:
+            f.write(contenu)
+        print(f"Image '{nom_cle}' écrite dans: {chemin_sortie}")
+        return True
+    except Exception as e:
+        print(f"Erreur d'écriture: {e}")
+        return False
 
 def supprimer_photo_galerie(
     sportifs: Dict[int, Sportif],
     sportif_id: int,
     nom_cle: str,
 ) -> bool:
-    """
-    Supprime une image de la galerie du sportif par sa clé.
-    Retourne True si une image a été supprimée.
-    """
     sp = _get_sportif(sportifs, sportif_id)
     if not sp:
         print("Sportif introuvable.")
         return False
+    _ensure_galerie(sp)
 
     existed = sp.galerie_photos.pop(nom_cle, None) is not None
+    # on nettoie aussi le chemin mémorisé
+    if hasattr(sp, "galerie_paths"):
+        sp.galerie_paths.pop(nom_cle, None)
+
     if existed:
         print(f"Image '{nom_cle}' supprimée de la galerie.")
     else:
-        print(f"ℹAucune image sous la clé '{nom_cle}'.")
+        print(f"ℹ Aucune image sous la clé '{nom_cle}'.")
     return existed
 
 def lister_clefs_galerie(sportifs: Dict[int, Sportif], sportif_id: int) -> list[str]:
-    """Renvoie la liste des clés (noms) des images de la galerie."""
     sp = _get_sportif(sportifs, sportif_id)
     if not sp:
         print("Sportif introuvable.")
         return []
+    _ensure_galerie(sp)
     return list(sp.galerie_photos.keys())
 
 def compter_galerie(sportifs: Dict[int, Sportif], sportif_id: int) -> int:
-    """Renvoie le nombre d'images dans la galerie du sportif."""
     sp = _get_sportif(sportifs, sportif_id)
     if not sp:
         print("Sportif introuvable.")
         return 0
+    _ensure_galerie(sp)
     return len(sp.galerie_photos)
 
 def vider_galerie(sportifs: Dict[int, Sportif], sportif_id: int) -> int:
-    """Supprime toutes les images de la galerie et renvoie combien ont été retirées."""
     sp = _get_sportif(sportifs, sportif_id)
     if not sp:
         print("Sportif introuvable.")
         return 0
+    _ensure_galerie(sp)
     n = len(sp.galerie_photos)
     sp.galerie_photos.clear()
+    if hasattr(sp, "galerie_paths"):
+        sp.galerie_paths.clear()
     print(f"Galerie vidée ({n} image(s) supprimée(s)).")
     return n
 
@@ -94,10 +153,6 @@ def ajouter_plusieurs(
     sportif_id: int,
     chemins: Iterable[str],
 ) -> int:
-    """
-    Ajoute plusieurs fichiers à la galerie (ignore ceux qui échouent).
-    Renvoie le nombre d'images ajoutées.
-    """
     added = 0
     for p in chemins:
         if ajouter_photo_galerie(sportifs, sportif_id, p):
@@ -113,33 +168,34 @@ sportifs: Dict[int, Sportif] = {
 }
 
 def test_galerie_existe():
-    """Test avec une vraie image locale existante."""
+    """Test avec une vraie image locale existante + réécriture sur disque."""
     print("— Test : ajout d'image existante dans la galerie —")
-    chemin = "uploads/test_galerie.png"  # mets une vraie image PNG/JPG ici
+    chemin = "uploads/test_galerie.png"       # mets une vraie image
+    cle    = "ma_photo"
+    sortie = "uploads/_out_galerie.png"       # preuve d'exploitabilité
 
-    # Petit rappel utile
     if not os.path.isdir("uploads"):
         print("Dossier 'uploads' introuvable (pense à le créer et y mettre l'image).")
 
-    # Réinitialisation de la galerie pour un test propre
     vider_galerie(sportifs, 1)
 
-    ok = ajouter_photo_galerie(sportifs, 1, chemin, "ma_photo")
+    ok_add = ajouter_photo_galerie(sportifs, 1, chemin, cle)
+    ok_out = ecrire_image_galerie_sur_disque(sportifs, 1, cle, sortie) if ok_add else False
 
-    if ok and "ma_photo" in lister_clefs_galerie(sportifs, 1):
-        print("TEST RÉUSSI : l'image a bien été ajoutée à la galerie.\n")
+    if ok_add and cle in lister_clefs_galerie(sportifs, 1) and ok_out and os.path.exists(sortie):
+        print("TEST RÉUSSI : image ajoutée et réécrite correctement (utilisable).\n")
     else:
-        print("TEST ÉCHOUÉ : l'image n'a pas été ajoutée correctement.\n")
+        print("TEST ÉCHOUÉ : ajout ou écriture défaillant.\n")
 
 def test_galerie_absente():
     """Test avec un fichier inexistant (doit échouer sans modifier la galerie)."""
     print("— Test : ajout d'un fichier inexistant —")
     chemin = "fichier_inexistant.png"
+    cle = "photo_absente"
 
-    # Réinitialisation de la galerie
     vider_galerie(sportifs, 1)
 
-    ok = ajouter_photo_galerie(sportifs, 1, chemin, "photo_absente")
+    ok = ajouter_photo_galerie(sportifs, 1, chemin, cle)
 
     if not ok and len(lister_clefs_galerie(sportifs, 1)) == 0:
         print("TEST RÉUSSI : fichier manquant détecté, galerie inchangée.\n")

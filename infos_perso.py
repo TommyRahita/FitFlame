@@ -19,7 +19,9 @@ def func_infos_personelles(
     attentes: list[str],
     genre_recherche: str,
     min_age_recherchee: int, 
-    max_age_recherchee: int
+    max_age_recherchee: int,
+    photo_profil: bytes,
+    galerie_photos: dict[str, bytes] = field(default_factory=dict)
 ):
     
     sportif = Sportif(
@@ -35,6 +37,8 @@ def func_infos_personelles(
         genre_recherche = genre_recherche,
         min_age_recherchee = min_age_recherchee,
         max_age_recherchee = max_age_recherchee,
+        galerie_photos = galerie_photos,
+        photo_profil = photo_profil
     )
 
     return sportif 
