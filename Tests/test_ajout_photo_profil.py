@@ -6,6 +6,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(BASE_DIR)
 
 from class_sportif import Sportif
+from ajout_photo_profil import *
 
 def charger_json(json_path: str) -> list:
     if not os.path.isfile(json_path):
