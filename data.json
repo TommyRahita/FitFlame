@@ -13,11 +13,7 @@
     "min_age_recherchee": 25,
     "max_age_recherchee": 35,
     "photo_profil": "uploads/test_profil.png",
-<<<<<<< HEAD
     "nb_swipes_restants": 50
-=======
-    "galerie_photos": []
->>>>>>> 1368049558b3d8dcb459ee6a67124125d7a62ed9
   },
   {
     "nom": "Leroy",
