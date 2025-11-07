@@ -21,7 +21,8 @@
     "genre_recherche": "Femme",
     "min_age_recherchee": 25,
     "max_age_recherchee": 35,
-    "photo_profil": "uploads/test_profil.png"
+    "photo_profil": "uploads/test_profil.png",
+    "galerie_photos": []
   },
   {
     "nom": "Leroy",
