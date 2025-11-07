@@ -19,16 +19,16 @@ def se_connecter():
             utilisateur_trouve = True
             if couple[1] == mot_de_passe:
                 # Mot de passe correct
-                print(f"Bonjour {prenom}")
+                afficher_bienvenue(prenom)
             else:
                 # Mot de passe incorrect
-                print(f"mdp incorrect")
+                afficher_mot_de_passe_incorrect()
             break
     
     if not utilisateur_trouve:
         # Si le prénom n'existe pas, ajouter à la base de données
         database.append((prenom, mot_de_passe))
-        print(f"Bonjour {prenom}")
+        afficher_bienvenue(prenom)
 
 
 # Fonction pour afficher la fenêtre de bienvenue
@@ -100,6 +100,7 @@ def afficher_bienvenue(prenom):
     entry_localisation_Y = tk.Entry(nouvelle_fenetre, textvariable=localisation_y, font=("Arial", 8), width=10)
     entry_localisation_Y.place(x=150, y=270)
 
+
     label_distance_rencontre = tk.Label(nouvelle_fenetre, text="distance_rencontre:")
     label_distance_rencontre.place(x=50, y=290)
     entry_distance_rencontre = tk.Entry(nouvelle_fenetre, textvariable=DISTANCE_RENCONTRE, font=("Arial", 8))
@@ -116,17 +117,6 @@ def afficher_bienvenue(prenom):
     label_attentes.place(x=250, y=50)
     entry_attentes = ttk.Combobox(nouvelle_fenetre, textvariable=ATTENTE, values=ATTENTES, state="normal")
     entry_attentes.place(x=250, y=70)
-
-    label_age_minimum = tk.Label(nouvelle_fenetre, text="age minimum:")
-    label_age_minimum.place(x=250, y=210)
-    entry_age_minimum = tk.Entry(nouvelle_fenetre, textvariable=MIN_AGE_RECHERCHE, font=("Arial", 8))
-    entry_age_minimum.place(x=250, y=230)
-
-
-    label_age_maximum = tk.Label(nouvelle_fenetre, text="age maximum:")
-    label_age_maximum.place(x=250, y=250)
-    entry_age_maximum = tk.Entry(nouvelle_fenetre, textvariable=MAX_AGE_RECHERCHE, font=("Arial", 8))
-    entry_age_maximum.place(x=250, y=270)
 
 
 
@@ -168,6 +158,17 @@ def afficher_bienvenue(prenom):
     label_attentes_sexe.place(x=250, y=170)
     entry_attentes_sexe = ttk.Combobox(nouvelle_fenetre, textvariable=GENRE_RECHERCHE, values=SEXES, state="readonly")
     entry_attentes_sexe.place(x=250, y=190)
+
+    label_age_minimum = tk.Label(nouvelle_fenetre, text="age minimum:")
+    label_age_minimum.place(x=250, y=210)
+    entry_age_minimum = tk.Entry(nouvelle_fenetre, textvariable=MIN_AGE_RECHERCHE, font=("Arial", 8))
+    entry_age_minimum.place(x=250, y=230)
+
+
+    label_age_maximum = tk.Label(nouvelle_fenetre, text="age maximum:")
+    label_age_maximum.place(x=250, y=250)
+    entry_age_maximum = tk.Entry(nouvelle_fenetre, textvariable=MAX_AGE_RECHERCHE, font=("Arial", 8))
+    entry_age_maximum.place(x=250, y=270)
 
 
     # Bouton pour fermer la fenêtre
