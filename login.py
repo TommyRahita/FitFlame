@@ -19,16 +19,16 @@ def se_connecter():
             utilisateur_trouve = True
             if couple[1] == mot_de_passe:
                 # Mot de passe correct
-                print(f"Bonjour {prenom}")
+                afficher_bienvenue(prenom)
             else:
                 # Mot de passe incorrect
-                print(f"mdp incorrect")
+                afficher_mot_de_passe_incorrect()
             break
     
     if not utilisateur_trouve:
         # Si le prénom n'existe pas, ajouter à la base de données
         database.append((prenom, mot_de_passe))
-        print(f"Bonjour {prenom}")
+        afficher_bienvenue(prenom)
 
 
 # Fonction pour afficher la fenêtre de bienvenue
@@ -50,12 +50,17 @@ def afficher_bienvenue(prenom):
     NATIONALITE = tk.StringVar()
     localisation_x = tk.IntVar()
     localisation_y = tk.IntVar()
+    DISTANCE_RENCONTRE = tk.IntVar()
     SPORT1 = tk.StringVar()
     NIVEAU_SPORT1 = tk.StringVar()
     SPORT2 = tk.StringVar()
     NIVEAU_SPORT2 = tk.StringVar()
     SPORT3 = tk.StringVar()
     NIVEAU_SPORT3 = tk.StringVar()
+    ATTENTE = tk.StringVar()
+    GENRE_RECHERCHE = tk.StringVar()
+    MIN_AGE_RECHERCHE = tk.StringVar()
+    MAX_AGE_RECHERCHE = tk.StringVar()
 
 
 
@@ -95,43 +100,75 @@ def afficher_bienvenue(prenom):
     entry_localisation_Y = tk.Entry(nouvelle_fenetre, textvariable=localisation_y, font=("Arial", 8), width=10)
     entry_localisation_Y.place(x=150, y=270)
 
+
+    label_distance_rencontre = tk.Label(nouvelle_fenetre, text="distance_rencontre:")
+    label_distance_rencontre.place(x=50, y=290)
+    entry_distance_rencontre = tk.Entry(nouvelle_fenetre, textvariable=DISTANCE_RENCONTRE, font=("Arial", 8))
+    entry_distance_rencontre.place(x=50, y=310)
+
     # Variable pour stocker le sport sélectionné
+    ATTENTES = ["Amitié", "Amour", "Entraînements", "Ne sais pas"]
     SPORTS = ["Football", "Basketball", "Tennis", "Natation", "Rugby", "Cyclisme"]
     NIVEAU = ["Débutant", "Intermédiaire", "Avancé", "Pro"]
+    SEXES = ["Femme", "Homme", "Tous"]
 
 
+    label_attentes = tk.Label(nouvelle_fenetre, text="Tu cherches:")
+    label_attentes.place(x=250, y=50)
+    entry_attentes = ttk.Combobox(nouvelle_fenetre, textvariable=ATTENTE, values=ATTENTES, state="normal")
+    entry_attentes.place(x=250, y=70)
+
+
+
+    # Variable pour stocker le sport sélectionné
 
     label_sport1 = tk.Label(nouvelle_fenetre, text="Choisis ton sport préféré:")
     label_sport1.place(x=250, y=90)
-    entry_sport1 = ttk.Combobox(nouvelle_fenetre, textvariable=SPORT1, values=SPORTS)
+    entry_sport1 = ttk.Combobox(nouvelle_fenetre, textvariable=SPORT1, values=SPORTS, state="normal")
     entry_sport1.place(x=250, y=110)
 
     label_niveau2 = tk.Label(nouvelle_fenetre, text="Choisis ton niveau:")
     label_niveau2.place(x=250, y=130)
-    entry_niveau2 = ttk.Combobox(nouvelle_fenetre, textvariable=NIVEAU_SPORT1, values=NIVEAU)
+    entry_niveau2 = ttk.Combobox(nouvelle_fenetre, textvariable=NIVEAU_SPORT1, values=NIVEAU, state="normal")
     entry_niveau2.place(x=250, y=150)
 
 
     label_sport2 = tk.Label(nouvelle_fenetre, text="Choisis ton sport préféré:")
     label_sport2.place(x=400, y=90)
-    entry_sport2 = ttk.Combobox(nouvelle_fenetre, textvariable=SPORT2, values=SPORTS)
+    entry_sport2 = ttk.Combobox(nouvelle_fenetre, textvariable=SPORT2, values=SPORTS, state="normal")
     entry_sport2.place(x=400, y=110)
 
     label_niveau2 = tk.Label(nouvelle_fenetre, text="Choisis ton niveau:")
     label_niveau2.place(x=400, y=130)
-    entry_niveau2 = ttk.Combobox(nouvelle_fenetre, textvariable=NIVEAU_SPORT2, values=NIVEAU)
+    entry_niveau2 = ttk.Combobox(nouvelle_fenetre, textvariable=NIVEAU_SPORT2, values=NIVEAU, state="normal")
     entry_niveau2.place(x=400, y=150)
 
 
     label_sport3 = tk.Label(nouvelle_fenetre, text="Choisis ton sport préféré:")
     label_sport3.place(x=550, y=90)
-    entry_sport3 = ttk.Combobox(nouvelle_fenetre, textvariable=SPORT3, values=SPORTS)
+    entry_sport3 = ttk.Combobox(nouvelle_fenetre, textvariable=SPORT3, values=SPORTS, state="normal")
     entry_sport3.place(x=550, y=110)
 
     label_niveau3 = tk.Label(nouvelle_fenetre, text="Choisis ton niveau:")
     label_niveau3.place(x=550, y=130)
-    entry_niveau3 = ttk.Combobox(nouvelle_fenetre, textvariable=NIVEAU_SPORT3, values=NIVEAU)
+    entry_niveau3 = ttk.Combobox(nouvelle_fenetre, textvariable=NIVEAU_SPORT3, values=NIVEAU, state="normal")
     entry_niveau3.place(x=550, y=150)
+
+    label_attentes_sexe = tk.Label(nouvelle_fenetre, text="Tu cherches:")
+    label_attentes_sexe.place(x=250, y=170)
+    entry_attentes_sexe = ttk.Combobox(nouvelle_fenetre, textvariable=GENRE_RECHERCHE, values=SEXES, state="readonly")
+    entry_attentes_sexe.place(x=250, y=190)
+
+    label_age_minimum = tk.Label(nouvelle_fenetre, text="age minimum:")
+    label_age_minimum.place(x=250, y=210)
+    entry_age_minimum = tk.Entry(nouvelle_fenetre, textvariable=MIN_AGE_RECHERCHE, font=("Arial", 8))
+    entry_age_minimum.place(x=250, y=230)
+
+
+    label_age_maximum = tk.Label(nouvelle_fenetre, text="age maximum:")
+    label_age_maximum.place(x=250, y=250)
+    entry_age_maximum = tk.Entry(nouvelle_fenetre, textvariable=MAX_AGE_RECHERCHE, font=("Arial", 8))
+    entry_age_maximum.place(x=250, y=270)
 
 
     # Bouton pour fermer la fenêtre
