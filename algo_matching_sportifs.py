@@ -89,3 +89,5 @@ def func_algo_matching(
         liste_sportifs_match.append(current_sportif)
 
     return liste_sportifs_match
+
+Sportif(nom='Dupond', prenom='Pierre', sexe='Homme', age=30, nationalite='Française', localisation=[48.8, 2.3], distance_rencontre=20, niveau_sports={'Judo': 'Expert'}, attentes=['Entraînement intensif'], genre_recherche='Femme', min_age_recherchee=25, max_age_recherchee=35, nb_swipes_restants=0, photo_profil='bytes_dummy_replaced'), Sportif(nom='Dupond', prenom='Pierre', sexe='Homme', age=30, nationalite='Française', localisation=[48.8, 2.3], distance_rencontre=20, niveau_sports={'Judo': 'Expert'}, attentes=['Entraînement intensif'], genre_recherche='Femme', min_age_recherchee=25, max_age_recherchee=35, nb_swipes_restants=0, photo_profil='bytes_dummy_replaced')
