@@ -5,17 +5,10 @@
     "sexe": "Homme",
     "age": 29,
     "nationalite": "Française",
-    "localisation": [
-      45.7578,
-      4.832
-    ],
+    "localisation": [45.7578, 4.832],
     "distance_rencontre": 15,
-    "niveau_sports": {
-      "Escalade": "Avancé",
-      "Randonnée": "Expert"
-    },
+    "niveau_sports": {"Escalade": 4, "Randonnée": 5},
     "attentes": "amitié",
-    
     "genre_recherche": "Femme",
     "min_age_recherchee": 25,
     "max_age_recherchee": 35,
@@ -26,21 +19,15 @@
     "nom": "Leroy",
     "prenom": "Amélie",
     "sexe": "Femme",
-    "age": 23,
+    "age": 27,
     "nationalite": "Française",
-    "localisation": [
-      43.6047,
-      1.4442
-    ],
-    "distance_rencontre": 25,
-    "niveau_sports": {
-      "Badminton": "Intermédiaire",
-      "Yoga": "Avancé"
-    },
+    "localisation": [43.6047, 1.4442],
+    "distance_rencontre": 100,
+    "niveau_sports": {"Badminton": 3, "Yoga": 4},
     "attentes": "amour",
     "genre_recherche": "Homme",
     "min_age_recherchee": 20,
-    "max_age_recherchee": 28,
+    "max_age_recherchee": 30,
     "photo_profil": "bytes_dummy_amelie",
     "nb_swipes_restants": 15
   },
@@ -50,15 +37,9 @@
     "sexe": "Homme",
     "age": 41,
     "nationalite": "Française",
-    "localisation": [
-      48.8566,
-      2.3522
-    ],
+    "localisation": [48.8566, 2.3522],
     "distance_rencontre": 10,
-    "niveau_sports": {
-      "Natation": "Expert",
-      "Course à pied": "Intermédiaire"
-    },
+    "niveau_sports": {"Natation": 5, "Course à pied": 3},
     "attentes": "amitié",
     "genre_recherche": "Femme",
     "min_age_recherchee": 35,
@@ -72,15 +53,9 @@
     "sexe": "Femme",
     "age": 34,
     "nationalite": "Française",
-    "localisation": [
-      43.2965,
-      5.3698
-    ],
+    "localisation": [43.2965, 5.3698],
     "distance_rencontre": 35,
-    "niveau_sports": {
-      "Planche à voile": "Avancé",
-      "Kitesurf": "Expert"
-    },
+    "niveau_sports": {"Planche à voile": 4, "Kitesurf": 5},
     "attentes": "amour",
     "genre_recherche": "Peu importe",
     "min_age_recherchee": 30,
@@ -94,15 +69,9 @@
     "sexe": "Homme",
     "age": 20,
     "nationalite": "Française",
-    "localisation": [
-      47.2184,
-      -1.5536
-    ],
+    "localisation": [47.2184, -1.5536],
     "distance_rencontre": 20,
-    "niveau_sports": {
-      "Basket-ball": "Avancé",
-      "Musculation": "Débutant"
-    },
+    "niveau_sports": {"Basket-ball": 4, "Musculation": 1},
     "attentes": "amour",
     "genre_recherche": "Femme",
     "min_age_recherchee": 18,
@@ -116,41 +85,14 @@
     "sexe": "Homme",
     "age": 30,
     "nationalite": "Française",
-    "localisation": [
-      48.8,
-      2.3
-    ],
+    "localisation": [48.8, 2.3],
     "distance_rencontre": 20,
-    "niveau_sports": {
-      "Judo": "Expert"
-    },
+    "niveau_sports": {"Judo": 5},
     "attentes": "amour",
     "genre_recherche": "Femme",
     "min_age_recherchee": 25,
     "max_age_recherchee": 35,
     "photo_profil": "bytes_dummy_replaced",
-    "nb_swipes_restants": 0
-  },
-  {
-    "nom": "Dupond",
-    "prenom": "Pierre",
-    "sexe": "Homme",
-    "age": 30,
-    "nationalite": "Française",
-    "localisation": [
-      48.8,
-      2.3
-    ],
-    "distance_rencontre": 20,
-    "niveau_sports": {
-      "Judo": "Expert"
-    },
-    "attentes": "amour",
-    "genre_recherche": "Femme",
-    "min_age_recherchee": 25,
-    "max_age_recherchee": 35,
-    "photo_profil": "bytes_dummy_replaced",
-    "galerie_photos": {},
     "nb_swipes_restants": 0
   }
 ]

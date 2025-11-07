@@ -41,6 +41,7 @@ def func_algo_matching(
 ):
 
     if sportif_a_matcher.nb_swipes_restants == 0:
+         print("0 swipes restants")
          return []
 
     with open("data.json", 'r', encoding='utf-8') as fichier:
@@ -67,13 +68,23 @@ def func_algo_matching(
             nb_swipes_restants = dict_sportif['nb_swipes_restants']
         )
 
+        if current_sportif.prenom != "Amélie":
+            continue
+
+        if current_sportif.nb_swipes_restants == 0:
+            print("0 swipes restants")
+            continue
+
         if sportif_a_matcher.attentes == current_sportif.attentes:
+            print("attentes diffétentes")
             continue
         
         if not(sportif_a_matcher.min_age_recherchee <= current_sportif.age <= sportif_a_matcher.max_age_recherchee) or not(current_sportif.min_age_recherchee <= sportif_a_matcher.age <= current_sportif.max_age_recherchee):
+            print("age different")
             continue
 
         if (sportif_a_matcher.genre_recherche != current_sportif.sexe) or (sportif_a_matcher.sexe != current_sportif.genre_recherche):
+            print("genre recherché incompatible")
             continue
         
         distance_entre_les_deux = func_calculer_distance(
@@ -84,10 +95,9 @@ def func_algo_matching(
         )
         
         if (sportif_a_matcher.distance_rencontre < distance_entre_les_deux) or (current_sportif.distance_rencontre < distance_entre_les_deux):
+            print("trop loin")
             continue    
 
         liste_sportifs_match.append(current_sportif)
 
     return liste_sportifs_match
-
-Sportif(nom='Dupond', prenom='Pierre', sexe='Homme', age=30, nationalite='Française', localisation=[48.8, 2.3], distance_rencontre=20, niveau_sports={'Judo': 'Expert'}, attentes=['Entraînement intensif'], genre_recherche='Femme', min_age_recherchee=25, max_age_recherchee=35, nb_swipes_restants=0, photo_profil='bytes_dummy_replaced'), Sportif(nom='Dupond', prenom='Pierre', sexe='Homme', age=30, nationalite='Française', localisation=[48.8, 2.3], distance_rencontre=20, niveau_sports={'Judo': 'Expert'}, attentes=['Entraînement intensif'], genre_recherche='Femme', min_age_recherchee=25, max_age_recherchee=35, nb_swipes_restants=0, photo_profil='bytes_dummy_replaced')
