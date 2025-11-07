@@ -48,6 +48,8 @@ def afficher_bienvenue(prenom):
     age = tk.IntVar()
 
     NATIONALITE = tk.StringVar()
+    localisation_x = tk.IntVar()
+    localisation_y = tk.IntVar()
     SPORT1 = tk.StringVar()
     NIVEAU_SPORT1 = tk.StringVar()
     SPORT2 = tk.StringVar()
@@ -81,6 +83,17 @@ def afficher_bienvenue(prenom):
     label_nat.place(x=50, y=210)
     entry_nat = tk.Entry(nouvelle_fenetre, textvariable=NATIONALITE, font=("Arial", 8))
     entry_nat.place(x=50, y=230)
+
+    # localisation
+    label_localisation_X = tk.Label(nouvelle_fenetre, text="Localisation X:")
+    label_localisation_X.place(x=50, y=250)
+    entry_localisation_X = tk.Entry(nouvelle_fenetre, textvariable=localisation_x, font=("Arial", 8), width=10)
+    entry_localisation_X.place(x=50, y=270)
+
+    label_localisation_Y = tk.Label(nouvelle_fenetre, text="Localisation Y:")
+    label_localisation_Y.place(x=150, y=250)
+    entry_localisation_Y = tk.Entry(nouvelle_fenetre, textvariable=localisation_y, font=("Arial", 8), width=10)
+    entry_localisation_Y.place(x=150, y=270)
 
     # Variable pour stocker le sport sélectionné
     SPORTS = ["Football", "Basketball", "Tennis", "Natation", "Rugby", "Cyclisme"]
