@@ -4,6 +4,7 @@ import json, os
 
 @dataclass
 class Sportif:
+<<<<<<< HEAD
     nom: Optional[str] = None
     prenom: Optional[str] = None
     sexe: Optional[str] = None
@@ -214,3 +215,20 @@ class Sportif:
         print(f"🗑️ Photo de galerie supprimée pour {self.prenom} {self.nom}.")
         return True
 
+=======
+    nom: str = None
+    prenom: str = None
+    sexe: str = None
+    age: int = None
+    nationalite: str = None
+    localisation: list[float, float] = None
+    distance_rencontre: int = None
+    niveau_sports: dict = None
+    attentes: str = None
+    genre_recherche: str = None
+    min_age_recherchee: int = None
+    max_age_recherchee: int = None
+    nb_swipes_restants: int = None
+    photo_profil: Optional[str] = None
+    galerie_photos: list[str] = field(default_factory=list)
+>>>>>>> f1e2da0d00b0b167cb50f81b711000520e11b022
