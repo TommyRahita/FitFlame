@@ -58,6 +58,8 @@ def afficher_bienvenue(prenom):
     NIVEAU_SPORT3 = tk.StringVar()
     ATTENTE = tk.StringVar()
     GENRE_RECHERCHE = tk.StringVar()
+    MIN_AGE_RECHERCHE = tk.StringVar()
+    MAX_AGE_RECHERCHE = tk.StringVar()
 
 
 
@@ -108,6 +110,17 @@ def afficher_bienvenue(prenom):
     label_attentes.place(x=250, y=50)
     entry_attentes = ttk.Combobox(nouvelle_fenetre, textvariable=ATTENTE, values=ATTENTES, state="normal")
     entry_attentes.place(x=250, y=70)
+
+    label_age_minimum = tk.Label(nouvelle_fenetre, text="age minimum:")
+    label_age_minimum.place(x=250, y=210)
+    entry_age_minimum = tk.Entry(nouvelle_fenetre, textvariable=MIN_AGE_RECHERCHE, font=("Arial", 8))
+    entry_age_minimum.place(x=250, y=230)
+
+
+    label_age_maximum = tk.Label(nouvelle_fenetre, text="age maximum:")
+    label_age_maximum.place(x=250, y=250)
+    entry_age_maximum = tk.Entry(nouvelle_fenetre, textvariable=MAX_AGE_RECHERCHE, font=("Arial", 8))
+    entry_age_maximum.place(x=250, y=270)
 
 
 
