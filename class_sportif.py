@@ -22,4 +22,4 @@ class Sportif:
     max_age_recherchee: int = None
     nb_swipes_restants: int = None
     photo_profil: Optional[str] = None
-    galerie_photos: List[str] = field(default_factory=list)
+    galerie_photos: list[str] = field(default_factory=list)
