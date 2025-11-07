@@ -50,6 +50,7 @@ def afficher_bienvenue(prenom):
     NATIONALITE = tk.StringVar()
     localisation_x = tk.IntVar()
     localisation_y = tk.IntVar()
+    DISTANCE_RENCONTRE = tk.IntVar()
     SPORT1 = tk.StringVar()
     NIVEAU_SPORT1 = tk.StringVar()
     SPORT2 = tk.StringVar()
@@ -96,6 +97,11 @@ def afficher_bienvenue(prenom):
     label_localisation_Y.place(x=150, y=250)
     entry_localisation_Y = tk.Entry(nouvelle_fenetre, textvariable=localisation_y, font=("Arial", 8), width=10)
     entry_localisation_Y.place(x=150, y=270)
+
+    label_distance_rencontre = tk.Label(nouvelle_fenetre, text="distance_rencontre:")
+    label_distance_rencontre.place(x=50, y=290)
+    entry_distance_rencontre = tk.Entry(nouvelle_fenetre, textvariable=DISTANCE_RENCONTRE, font=("Arial", 8))
+    entry_distance_rencontre.place(x=50, y=310)
 
     # Variable pour stocker le sport sélectionné
     ATTENTES = ["Amitié", "Amour", "Entraînements", "Ne sais pas"]
