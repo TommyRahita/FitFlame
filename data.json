@@ -12,7 +12,6 @@
     "genre_recherche": "Femme",
     "min_age_recherchee": 25,
     "max_age_recherchee": 35,
-    "photo_profil": "uploads/test_profil.png",
     "nb_swipes_restants": 50
   },
   {
@@ -28,7 +27,6 @@
     "genre_recherche": "Homme",
     "min_age_recherchee": 20,
     "max_age_recherchee": 30,
-    "photo_profil": "bytes_dummy_amelie",
     "nb_swipes_restants": 15
   },
   {
@@ -44,7 +42,6 @@
     "genre_recherche": "Femme",
     "min_age_recherchee": 35,
     "max_age_recherchee": 45,
-    "photo_profil": "bytes_dummy_marc",
     "nb_swipes_restants": 100
   },
   {
@@ -60,7 +57,6 @@
     "genre_recherche": "Peu importe",
     "min_age_recherchee": 30,
     "max_age_recherchee": 40,
-    "photo_profil": "bytes_dummy_sophie",
     "nb_swipes_restants": 5
   },
   {
@@ -76,7 +72,6 @@
     "genre_recherche": "Femme",
     "min_age_recherchee": 18,
     "max_age_recherchee": 25,
-    "photo_profil": "bytes_dummy_lucas",
     "nb_swipes_restants": 30
   },
   {
@@ -92,7 +87,6 @@
     "genre_recherche": "Femme",
     "min_age_recherchee": 25,
     "max_age_recherchee": 35,
-    "photo_profil": "bytes_dummy_replaced",
     "nb_swipes_restants": 0
   }
 ]

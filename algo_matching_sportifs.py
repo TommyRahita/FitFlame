@@ -63,7 +63,7 @@ def func_algo_matching(
             genre_recherche = dict_sportif['genre_recherche'],
             min_age_recherchee = dict_sportif['min_age_recherchee'],
             max_age_recherchee = dict_sportif['max_age_recherchee'],
-            photo_profil = dict_sportif['photo_profil'],
+            # photo_profil = dict_sportif['photo_profil'],
             # galerie_photos = dict_sportif['galerie_photos'],
             nb_swipes_restants = dict_sportif['nb_swipes_restants']
         )

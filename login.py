@@ -1,9 +1,24 @@
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
+import sys
+import os
+
+chemin_actuel = os.getcwd()
+sys.path.append(chemin_actuel)
+
+from get_spotifs_from_json import *
+from algo_matching_sportifs import *
+# from algo_matching_sportifs import *
+
+
+
 
 # Liste pour stocker les couples (prénom, mot de passe)
 database = []
+liste_sportifs = func_get_sportifs_from_json()
+# print(database)
+# print(database[0])
 
 
 
@@ -59,8 +74,8 @@ def afficher_bienvenue(prenom):
     NIVEAU_SPORT3 = tk.StringVar()
     ATTENTE = tk.StringVar()
     GENRE_RECHERCHE = tk.StringVar()
-    MIN_AGE_RECHERCHE = tk.StringVar()
-    MAX_AGE_RECHERCHE = tk.StringVar()
+    MIN_AGE_RECHERCHE = tk.IntVar()
+    MAX_AGE_RECHERCHE = tk.IntVar()
 
 
 
@@ -171,9 +186,138 @@ def afficher_bienvenue(prenom):
     entry_age_maximum.place(x=250, y=270)
 
 
+
+    sportif_actuel = Sportif(
+            nom = NOM,
+            prenom = PRENOM ,
+            sexe = SEXE ,
+            age = age,
+
+            nationalite = NATIONALITE ,
+            localisation=[localisation_x,localisation_y],
+
+
+            distance_rencontre = DISTANCE_RENCONTRE,
+            niveau_sports = {SPORT1.get():NIVEAU_SPORT1.get(),
+            SPORT2.get():NIVEAU_SPORT2.get(),
+            SPORT3.get():NIVEAU_SPORT3.get()},
+
+            attentes = ATTENTE ,
+            genre_recherche = GENRE_RECHERCHE ,
+            min_age_recherchee = (MIN_AGE_RECHERCHE.get()) ,
+            max_age_recherchee = (MAX_AGE_RECHERCHE.get()) 
+            )
+
+
+
     # Bouton pour fermer la fenêtre
     button_quitter = tk.Button(nouvelle_fenetre, text="Quitter", command=nouvelle_fenetre.destroy)
-    button_quitter.place(x=250, y=310)
+    button_quitter.place(x=250, y=300)
+
+    # Bouton pour fermer la fenêtre
+    button_quitter = tk.Button(nouvelle_fenetre, text="Commencer !", command=lambda:afficher_page_swipe(nouvelle_fenetre, liste_sportifs, sportif_actuel, 0))
+    button_quitter.place(x=250, y=330)
+
+
+def afficher_page_swipe(nouvelle_fenetre, liste_sportifs, sportif_actuel, i):  # Cacher la fenêtre de login
+
+    print(liste_sportifs)
+    # sportif = liste_sportifs
+
+    liste_filtre = func_algo_matching(sportif_actuel)
+
+    sportif = liste_filtre[i]
+
+
+    nouvelle_fenetre.withdraw()
+    page_swipe = tk.Toplevel()  # Créer une nouvelle fenêtre
+
+
+
+
+
+
+    PRENOM_swipe = tk.StringVar()
+    print(sportif.prenom)
+    PRENOM_swipe.set(sportif.prenom)
+    SEXE_swipe = tk.StringVar()
+    SEXE_swipe.set(sportif.sexe)
+    age_swipe = tk.IntVar()
+    age_swipe.set(sportif.age)
+
+    NATIONALITE_swipe = tk.StringVar()
+    NATIONALITE_swipe.set(sportif.nationalite)
+    ATTENTE_swipe = tk.StringVar()
+    ATTENTE_swipe.set(sportif.attentes)
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    page_swipe.title("FitFlame :")
+    page_swipe.geometry("720x370")
+
+    # Label de bienvenue avec le prénom
+    bienvenue_label = tk.Label(page_swipe, text="nouveau candidat", font=("Arial", 16))
+    bienvenue_label.pack(padx=20, pady=20)
+
+
+
+
+
+    label_prenom = tk.Label(page_swipe, text="Prénom:")
+    label_prenom.place(x=50, y=50)
+    entry_prenom = tk.Entry(page_swipe, textvariable=PRENOM_swipe, font=("Arial", 8), state="readonly")
+    entry_prenom.place(x=50, y=70)
+
+    label_sexe = tk.Label(page_swipe, text="Sexe:")
+    label_sexe.place(x=50, y=90)
+    entry_sexe = tk.Entry(page_swipe, textvariable=SEXE_swipe, font=("Arial", 8), state="readonly")
+    entry_sexe.place(x=50, y=110)
+
+    label_age = tk.Label(page_swipe, text="Age:")
+    label_age.place(x=50, y=130)
+    entry_age = tk.Entry(page_swipe, textvariable=age_swipe, font=("Arial", 8), state="readonly")
+    entry_age.place(x=50, y=150)
+
+    label_nat = tk.Label(page_swipe, text="Nationalité:")
+    label_nat.place(x=50, y=170)
+    entry_nat = tk.Entry(page_swipe, textvariable=NATIONALITE_swipe, font=("Arial", 8), state="readonly")
+    entry_nat.place(x=50, y=190)
+
+    label_attentes = tk.Label(page_swipe, text="Il/Elle cherche:")
+    label_attentes.place(x=50, y=210)
+    entry_attentes = tk.Entry(page_swipe, textvariable=ATTENTE_swipe, font=("Arial", 8), state="readonly")
+    entry_attentes.place(x=50, y=230)
+
+    button_quitter = tk.Button(page_swipe, text="Oui", command=lambda:Oui())
+    button_quitter.place(x=250, y=130)
+
+    button_quitter = tk.Button(page_swipe, text="Non !", command=lambda:Non())
+    button_quitter.place(x=250, y=160)
+
+    def Oui():
+        if(i <= len(liste_sportifs)):
+
+            afficher_page_swipe(nouvelle_fenetre, liste_sportifs, sportif_actuel, i+1)
+
+        print("oui")
+
+    def Non():
+        print("non")
 
 
 

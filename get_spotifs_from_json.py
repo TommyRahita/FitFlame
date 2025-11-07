@@ -27,7 +27,7 @@ def func_get_sportifs_from_json():
             genre_recherche = dict_sportif['genre_recherche'],
             min_age_recherchee = dict_sportif['min_age_recherchee'],
             max_age_recherchee = dict_sportif['max_age_recherchee'],
-            photo_profil = dict_sportif['photo_profil'],
+            # photo_profil = dict_sportif['photo_profil'],
             nb_swipes_restants = dict_sportif['nb_swipes_restants']
         )
             for dict_sportif in liste_sportifs 
