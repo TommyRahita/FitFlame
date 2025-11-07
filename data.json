@@ -4,13 +4,164 @@
     "prenom": "Julien",
     "sexe": "Homme",
     "age": 29,
-    "photo_profil": "l:/BUT/SD/Promo 2023/trahita/SAE_GestionProjet/FitFlame/Tests/../uploads/test_profil.png"
+    "nationalite": "Française",
+    "localisalisation": [
+      45.7578,
+      4.832
+    ],
+    "distance_rencontre": 15,
+    "niveau_sports": {
+      "Escalade": "Avancé",
+      "Randonnée": "Expert"
+    },
+    "attentes": [
+      "Trouver un partenaire pour des grandes voies",
+      "Partager des conseils sur le matériel"
+    ],
+    "genre_recherche": "Femme",
+    "min_age_recherchee": 25,
+    "max_age_recherchee": 35,
+    "photo_profil": "uploads/test_profil.png"
   },
   {
     "nom": "Leroy",
     "prenom": "Amélie",
     "sexe": "Femme",
     "age": 23,
-    "photo_profil": null
+    "nationalite": "Française",
+    "localisalisation": [
+      43.6047,
+      1.4442
+    ],
+    "distance_rencontre": 25,
+    "niveau_sports": {
+      "Badminton": "Intermédiaire",
+      "Yoga": "Avancé"
+    },
+    "attentes": [
+      "Organiser des parties de badminton régulières",
+      "Échanger sur la méditation"
+    ],
+    "genre_recherche": "Homme",
+    "min_age_recherchee": 20,
+    "max_age_recherchee": 28,
+    "photo_profil": "bytes_dummy_amelie"
+  },
+  {
+    "nom": "Petit",
+    "prenom": "Marc",
+    "sexe": "Homme",
+    "age": 41,
+    "nationalite": "Française",
+    "localisalisation": [
+      48.8566,
+      2.3522
+    ],
+    "distance_rencontre": 10,
+    "niveau_sports": {
+      "Natation": "Expert",
+      "Course à pied": "Intermédiaire"
+    },
+    "attentes": [
+      "Préparation pour un triathlon",
+      "Trouver des coéquipiers pour les relais"
+    ],
+    "genre_recherche": "Femme",
+    "min_age_recherchee": 35,
+    "max_age_recherchee": 45,
+    "photo_profil": "bytes_dummy_marc"
+  },
+  {
+    "nom": "Bernard",
+    "prenom": "Sophie",
+    "sexe": "Femme",
+    "age": 34,
+    "nationalite": "Française",
+    "localisalisation": [
+      43.2965,
+      5.3698
+    ],
+    "distance_rencontre": 35,
+    "niveau_sports": {
+      "Planche à voile": "Avancé",
+      "Kitesurf": "Expert"
+    },
+    "attentes": [
+      "Rencontrer des passionnés de sports nautiques",
+      "Trouver des spots près de Marseille"
+    ],
+    "genre_recherche": "Peu importe",
+    "min_age_recherchee": 30,
+    "max_age_recherchee": 40,
+    "photo_profil": "bytes_dummy_sophie"
+  },
+  {
+    "nom": "Moreau",
+    "prenom": "Lucas",
+    "sexe": "Homme",
+    "age": 20,
+    "nationalite": "Française",
+    "localisalisation": [
+      47.2184,
+      -1.5536
+    ],
+    "distance_rencontre": 20,
+    "niveau_sports": {
+      "Basket-ball": "Avancé",
+      "Musculation": "Débutant"
+    },
+    "attentes": [
+      "Trouver une équipe de street-ball",
+      "Coaching pour la prise de masse"
+    ],
+    "genre_recherche": "Femme",
+    "min_age_recherchee": 18,
+    "max_age_recherchee": 25,
+    "photo_profil": "bytes_dummy_lucas"
+  },
+  {
+    "nom": "Dupond",
+    "prenom": "Pierre",
+    "sexe": "Homme",
+    "age": 30,
+    "nationalite": "Française",
+    "localisalisation": [
+      48.8,
+      2.3
+    ],
+    "distance_rencontre": 20,
+    "niveau_sports": {
+      "Judo": "Expert"
+    },
+    "attentes": [
+      "Entraînement intensif"
+    ],
+    "genre_recherche": "Femme",
+    "min_age_recherchee": 25,
+    "max_age_recherchee": 35,
+    "photo_profil": "bytes_dummy_replaced"
+  },
+  {
+    "nom": "Dupond",
+    "prenom": "Pierre",
+    "sexe": "Homme",
+    "age": 30,
+    "nationalite": "Française",
+    "localisalisation": [
+      48.8,
+      2.3
+    ],
+    "distance_rencontre": 20,
+    "niveau_sports": {
+      "Judo": "Expert"
+    },
+    "attentes": [
+      "Entraînement intensif"
+    ],
+    "genre_recherche": "Femme",
+    "min_age_recherchee": 25,
+    "max_age_recherchee": 35,
+    "photo_profil": "bytes_dummy_replaced",
+    "galerie_photos": {}
   }
 ]
