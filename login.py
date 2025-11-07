@@ -30,6 +30,36 @@ def se_connecter():
         print(f"Bonjour {prenom}")
 
 
+# Fonction pour afficher la fenêtre de bienvenue
+def afficher_bienvenue(prenom):
+    root.withdraw()  # Cacher la fenêtre de login
+    nouvelle_fenetre = tk.Toplevel()  # Créer une nouvelle fenêtre
+    nouvelle_fenetre.title("Renseignez vos infos :")
+    nouvelle_fenetre.geometry("720x370")
+
+    # Label de bienvenue avec le prénom
+    bienvenue_label = tk.Label(nouvelle_fenetre, text=f"Bienvenue {prenom} !", font=("Arial", 16))
+    bienvenue_label.pack(padx=20, pady=20)
+
+    NOM = tk.StringVar()
+    PRENOM = tk.StringVar()
+
+
+
+    label_prenom = tk.Label(nouvelle_fenetre, text="Prénom:")
+    label_prenom.place(x=50, y=50)
+    entry_prenom = tk.Entry(nouvelle_fenetre, textvariable=PRENOM, font=("Arial", 8))
+    entry_prenom.place(x=50, y=70)
+
+    label_nom = tk.Label(nouvelle_fenetre, text="Nom:")
+    label_nom.place(x=50, y=90)
+    entry_nom = tk.Entry(nouvelle_fenetre, textvariable=NOM, font=("Arial", 8))
+    entry_nom.place(x=50, y=110)
+
+    # Bouton pour fermer la fenêtre
+    button_quitter = tk.Button(nouvelle_fenetre, text="Quitter", command=nouvelle_fenetre.destroy)
+    button_quitter.place(x=250, y=310)
+
 
 
 
