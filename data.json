@@ -1,167 +1,139 @@
 [
   {
     "nom": "Durand",
-    "prenom": "Julien",
+    "prenom": "Alexandre",
     "sexe": "Homme",
-    "age": 29,
+    "age": 30,
     "nationalite": "Française",
     "localisalisation": [
-      45.7578,
-      4.832
+      48.8667,
+      2.3333
     ],
     "distance_rencontre": 15,
     "niveau_sports": {
-      "Escalade": "Avancé",
-      "Randonnée": "Expert"
+      "Course à pied": "Intermédiaire",
+      "Vélo": "Avancé"
     },
-    "attentes": [
-      "Trouver un partenaire pour des grandes voies",
-      "Partager des conseils sur le matériel"
-    ],
+    "attentes": "Performance",
     "genre_recherche": "Femme",
     "min_age_recherchee": 25,
     "max_age_recherchee": 35,
-    "photo_profil": "bytes_dummy_julien"
+    "photo_profil": "VGhpcyBpcyBhIHNpbXVsYXRlZCBwaG90byBiYXJyeSBkYXRhLg==",
+    "galerie_photos": {},
+    "nb_swipes_restants": 45
   },
   {
     "nom": "Leroy",
-    "prenom": "Amélie",
+    "prenom": "Sophie",
     "sexe": "Femme",
-    "age": 23,
-    "nationalite": "Française",
+    "age": 28,
+    "nationalite": "Canadienne",
     "localisalisation": [
-      43.6047,
-      1.4442
+      48.8700,
+      2.3500
     ],
-    "distance_rencontre": 25,
+    "distance_rencontre": 20,
     "niveau_sports": {
-      "Badminton": "Intermédiaire",
-      "Yoga": "Avancé"
+      "Yoga": "Débutant",
+      "Natation": "Intermédiaire"
     },
-    "attentes": [
-      "Organiser des parties de badminton régulières",
-      "Échanger sur la méditation"
-    ],
+    "attentes": "Loisir",
     "genre_recherche": "Homme",
-    "min_age_recherchee": 20,
-    "max_age_recherchee": 28,
-    "photo_profil": "bytes_dummy_amelie"
+    "min_age_recherchee": 28,
+    "max_age_recherchee": 40,
+    "photo_profil": "VGhpcyBpcyBhIHNpbXVsYXRlZCBwaG90byBiYXJyeSBkYXRhLg==",
+    "galerie_photos": {
+      "vacances_ski": "VGhpcyBpcyBhIHNpbXVsYXRlZCBwaG90byBiYXJyeSBkYXRhLg=="
+    },
+    "nb_swipes_restants": 32
   },
   {
     "nom": "Petit",
-    "prenom": "Marc",
+    "prenom": "Lucas",
     "sexe": "Homme",
-    "age": 41,
-    "nationalite": "Française",
+    "age": 24,
+    "nationalite": "Belge",
     "localisalisation": [
-      48.8566,
-      2.3522
+      48.8500,
+      2.3400
     ],
-    "distance_rencontre": 10,
+    "distance_rencontre": 5,
     "niveau_sports": {
-      "Natation": "Expert",
-      "Course à pied": "Intermédiaire"
+      "Musculation": "Avancé"
     },
-    "attentes": [
-      "Préparation pour un triathlon",
-      "Trouver des coéquipiers pour les relais"
-    ],
+    "attentes": "Performance",
     "genre_recherche": "Femme",
-    "min_age_recherchee": 35,
-    "max_age_recherchee": 45,
-    "photo_profil": "bytes_dummy_marc"
+    "min_age_recherchee": 20,
+    "max_age_recherchee": 27,
+    "photo_profil": "VGhpcyBpcyBhIHNpbXVsYXRlZCBwaG90byBiYXJyeSBkYXRhLg==",
+    "galerie_photos": {},
+    "nb_swipes_restants": 10
   },
   {
-    "nom": "Bernard",
-    "prenom": "Sophie",
+    "nom": "Martin",
+    "prenom": "Chloé",
     "sexe": "Femme",
-    "age": 34,
+    "age": 35,
     "nationalite": "Française",
     "localisalisation": [
-      43.2965,
-      5.3698
+      45.7500,
+      4.8500
     ],
-    "distance_rencontre": 35,
+    "distance_rencontre": 40,
     "niveau_sports": {
-      "Planche à voile": "Avancé",
-      "Kitesurf": "Expert"
+      "Randonnée": "Intermédiaire"
     },
-    "attentes": [
-      "Rencontrer des passionnés de sports nautiques",
-      "Trouver des spots près de Marseille"
-    ],
-    "genre_recherche": "Peu importe",
+    "attentes": "Loisir",
+    "genre_recherche": "Homme",
     "min_age_recherchee": 30,
-    "max_age_recherchee": 40,
-    "photo_profil": "bytes_dummy_sophie"
+    "max_age_recherchee": 45,
+    "photo_profil": "VGhpcyBpcyBhIHNpbXVsYXRlZCBwaG90byBiYXJyeSBkYXRhLg==",
+    "galerie_photos": {},
+    "nb_swipes_restants": 5
   },
   {
     "nom": "Moreau",
-    "prenom": "Lucas",
+    "prenom": "Marc",
     "sexe": "Homme",
-    "age": 20,
-    "nationalite": "Française",
+    "age": 42,
+    "nationalite": "Espagnole",
     "localisalisation": [
-      47.2184,
-      -1.5536
+      45.7600,
+      4.8400
     ],
-    "distance_rencontre": 20,
+    "distance_rencontre": 10,
     "niveau_sports": {
-      "Basket-ball": "Avancé",
-      "Musculation": "Débutant"
+      "Golf": "Débutant"
     },
-    "attentes": [
-      "Trouver une équipe de street-ball",
-      "Coaching pour la prise de masse"
-    ],
+    "attentes": "Loisir",
     "genre_recherche": "Femme",
-    "min_age_recherchee": 18,
-    "max_age_recherchee": 25,
-    "photo_profil": "bytes_dummy_lucas"
+    "min_age_recherchee": 35,
+    "max_age_recherchee": 50,
+    "photo_profil": "VGhpcyBpcyBhIHNpbXVsYXRlZCBwaG90byBiYXJyeSBkYXRhLg==",
+    "galerie_photos": {},
+    "nb_swipes_restants": 20
   },
   {
-    "nom": "Dupond",
-    "prenom": "Pierre",
-    "sexe": "Homme",
-    "age": 30,
+    "nom": "Roux",
+    "prenom": "Julie",
+    "sexe": "Femme",
+    "age": 29,
     "nationalite": "Française",
     "localisalisation": [
-      48.8,
-      2.3
+      48.8667,
+      2.3333
     ],
-    "distance_rencontre": 20,
+    "distance_rencontre": 15,
     "niveau_sports": {
-      "Judo": "Expert"
+      "Course à pied": "Intermédiaire",
+      "Escalade": "Débutant"
     },
-    "attentes": [
-      "Entraînement intensif"
-    ],
-    "genre_recherche": "Femme",
+    "attentes": "Performance",
+    "genre_recherche": "Homme",
     "min_age_recherchee": 25,
     "max_age_recherchee": 35,
-    "photo_profil": "bytes_dummy_replaced"
-  },
-  {
-    "nom": "Dupond",
-    "prenom": "Pierre",
-    "sexe": "Homme",
-    "age": 30,
-    "nationalite": "Française",
-    "localisalisation": [
-      48.8,
-      2.3
-    ],
-    "distance_rencontre": 20,
-    "niveau_sports": {
-      "Judo": "Expert"
-    },
-    "attentes": [
-      "Entraînement intensif"
-    ],
-    "genre_recherche": "Femme",
-    "min_age_recherchee": 25,
-    "max_age_recherchee": 35,
-    "photo_profil": "bytes_dummy_replaced",
-    "galerie_photos": {}
+    "photo_profil": "VGhpcyBpcyBhIHNpbXVsYXRlZCBwaG90byBiYXJyeSBkYXRhLg==",
+    "galerie_photos": {},
+    "nb_swipes_restants": 0
   }
 ]

@@ -20,5 +20,6 @@ class Sportif:
     genre_recherche: str = None
     min_age_recherchee: int = None
     max_age_recherchee: int = None
+    nb_swipes_restants: int = None
     photo_profil: bytes | None = None
     galerie_photos: dict[str, bytes] = field(default_factory=dict)
