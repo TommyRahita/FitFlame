@@ -13,7 +13,7 @@ class Sportif:
     sexe: str = None
     age: int = None
     nationalite: str = None
-    localisalisation: list[float, float] = None
+    localisation: list[float, float] = None
     distance_rencontre: int = None
     niveau_sports: dict = None
     attentes: str = None
@@ -22,4 +22,4 @@ class Sportif:
     max_age_recherchee: int = None
     nb_swipes_restants: int = None
     photo_profil: bytes | None = None
-    galerie_photos: dict[str, bytes] = field(default_factory=dict)
+    # galerie_photos: dict[str, bytes] = field(default_factory=dict)

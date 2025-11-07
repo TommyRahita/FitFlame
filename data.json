@@ -5,7 +5,7 @@
     "sexe": "Homme",
     "age": 29,
     "nationalite": "Française",
-    "localisalisation": [
+    "localisation": [
       45.7578,
       4.832
     ],
@@ -14,14 +14,13 @@
       "Escalade": "Avancé",
       "Randonnée": "Expert"
     },
-    "attentes": [
-      "Trouver un partenaire pour des grandes voies",
-      "Partager des conseils sur le matériel"
-    ],
+    "attentes": "amitié",
+    
     "genre_recherche": "Femme",
     "min_age_recherchee": 25,
     "max_age_recherchee": 35,
-    "photo_profil": "uploads/test_profil.png"
+    "photo_profil": "uploads/test_profil.png",
+    "nb_swipes_restants": 50
   },
   {
     "nom": "Leroy",
@@ -29,7 +28,7 @@
     "sexe": "Femme",
     "age": 23,
     "nationalite": "Française",
-    "localisalisation": [
+    "localisation": [
       43.6047,
       1.4442
     ],
@@ -38,14 +37,12 @@
       "Badminton": "Intermédiaire",
       "Yoga": "Avancé"
     },
-    "attentes": [
-      "Organiser des parties de badminton régulières",
-      "Échanger sur la méditation"
-    ],
+    "attentes": "amour",
     "genre_recherche": "Homme",
     "min_age_recherchee": 20,
     "max_age_recherchee": 28,
-    "photo_profil": "bytes_dummy_amelie"
+    "photo_profil": "bytes_dummy_amelie",
+    "nb_swipes_restants": 15
   },
   {
     "nom": "Petit",
@@ -53,7 +50,7 @@
     "sexe": "Homme",
     "age": 41,
     "nationalite": "Française",
-    "localisalisation": [
+    "localisation": [
       48.8566,
       2.3522
     ],
@@ -62,14 +59,12 @@
       "Natation": "Expert",
       "Course à pied": "Intermédiaire"
     },
-    "attentes": [
-      "Préparation pour un triathlon",
-      "Trouver des coéquipiers pour les relais"
-    ],
+    "attentes": "amitié",
     "genre_recherche": "Femme",
     "min_age_recherchee": 35,
     "max_age_recherchee": 45,
-    "photo_profil": "bytes_dummy_marc"
+    "photo_profil": "bytes_dummy_marc",
+    "nb_swipes_restants": 100
   },
   {
     "nom": "Bernard",
@@ -77,7 +72,7 @@
     "sexe": "Femme",
     "age": 34,
     "nationalite": "Française",
-    "localisalisation": [
+    "localisation": [
       43.2965,
       5.3698
     ],
@@ -86,14 +81,12 @@
       "Planche à voile": "Avancé",
       "Kitesurf": "Expert"
     },
-    "attentes": [
-      "Rencontrer des passionnés de sports nautiques",
-      "Trouver des spots près de Marseille"
-    ],
+    "attentes": "amour",
     "genre_recherche": "Peu importe",
     "min_age_recherchee": 30,
     "max_age_recherchee": 40,
-    "photo_profil": "bytes_dummy_sophie"
+    "photo_profil": "bytes_dummy_sophie",
+    "nb_swipes_restants": 5
   },
   {
     "nom": "Moreau",
@@ -101,7 +94,7 @@
     "sexe": "Homme",
     "age": 20,
     "nationalite": "Française",
-    "localisalisation": [
+    "localisation": [
       47.2184,
       -1.5536
     ],
@@ -110,14 +103,12 @@
       "Basket-ball": "Avancé",
       "Musculation": "Débutant"
     },
-    "attentes": [
-      "Trouver une équipe de street-ball",
-      "Coaching pour la prise de masse"
-    ],
+    "attentes": "amour",
     "genre_recherche": "Femme",
     "min_age_recherchee": 18,
     "max_age_recherchee": 25,
-    "photo_profil": "bytes_dummy_lucas"
+    "photo_profil": "bytes_dummy_lucas",
+    "nb_swipes_restants": 30
   },
   {
     "nom": "Dupond",
@@ -125,7 +116,7 @@
     "sexe": "Homme",
     "age": 30,
     "nationalite": "Française",
-    "localisalisation": [
+    "localisation": [
       48.8,
       2.3
     ],
@@ -133,35 +124,33 @@
     "niveau_sports": {
       "Judo": "Expert"
     },
-    "attentes": [
-      "Entraînement intensif"
-    ],
-    "genre_recherche": "Femme",
-    "min_age_recherchee": 25,
-    "max_age_recherchee": 35,
-    "photo_profil": "bytes_dummy_replaced"
-  },
-  {
-    "nom": "Dupond",
-    "prenom": "Pierre",
-    "sexe": "Homme",
-    "age": 30,
-    "nationalite": "Française",
-    "localisalisation": [
-      48.8,
-      2.3
-    ],
-    "distance_rencontre": 20,
-    "niveau_sports": {
-      "Judo": "Expert"
-    },
-    "attentes": [
-      "Entraînement intensif"
-    ],
+    "attentes": "amour",
     "genre_recherche": "Femme",
     "min_age_recherchee": 25,
     "max_age_recherchee": 35,
     "photo_profil": "bytes_dummy_replaced",
-    "galerie_photos": {}
+    "nb_swipes_restants": 0
+  },
+  {
+    "nom": "Dupond",
+    "prenom": "Pierre",
+    "sexe": "Homme",
+    "age": 30,
+    "nationalite": "Française",
+    "localisation": [
+      48.8,
+      2.3
+    ],
+    "distance_rencontre": 20,
+    "niveau_sports": {
+      "Judo": "Expert"
+    },
+    "attentes": "amour",
+    "genre_recherche": "Femme",
+    "min_age_recherchee": 25,
+    "max_age_recherchee": 35,
+    "photo_profil": "bytes_dummy_replaced",
+    "galerie_photos": {},
+    "nb_swipes_restants": 0
   }
 ]

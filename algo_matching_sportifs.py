@@ -4,7 +4,6 @@ import json
 import math
 
 
-
 chemin_actuel = os.getcwd()
 sys.path.append(chemin_actuel)
 
@@ -41,14 +40,13 @@ def func_algo_matching(
     sportif_a_matcher: Sportif
 ):
 
-    if sportif_a_matcher.
+    if sportif_a_matcher.nb_swipes_restants == 0:
+         return []
 
     with open("data.json", 'r', encoding='utf-8') as fichier:
         liste_sportifs = json.load(fichier)
 
     liste_sportifs_match = []
-
-
 
     for dict_sportif in liste_sportifs:
         current_sportif = Sportif(
@@ -57,7 +55,7 @@ def func_algo_matching(
             sexe = dict_sportif['sexe'],
             age = dict_sportif['age'],
             nationalite = dict_sportif['nationalite'],
-            localisalisation = dict_sportif['localisalisation'],
+            localisation = dict_sportif['localisation'],
             distance_rencontre = dict_sportif['distance_rencontre'],
             niveau_sports = dict_sportif['niveau_sports'],
             attentes = dict_sportif['attentes'],
@@ -66,7 +64,7 @@ def func_algo_matching(
             max_age_recherchee = dict_sportif['max_age_recherchee'],
             photo_profil = dict_sportif['photo_profil'],
             # galerie_photos = dict_sportif['galerie_photos'],
-            nb_swipes_restantes = dict_sportif['nb_swipes_restants']
+            nb_swipes_restants = dict_sportif['nb_swipes_restants']
         )
 
         if sportif_a_matcher.attentes == current_sportif.attentes:
@@ -79,10 +77,10 @@ def func_algo_matching(
             continue
         
         distance_entre_les_deux = func_calculer_distance(
-             lat1 = sportif_a_matcher.localisalisation[0],
-             lon1 = sportif_a_matcher.localisalisation[1],
-             lat2 = current_sportif.localisalisation[0],
-             lon2 = current_sportif.localisalisation[1]
+             lat1 = sportif_a_matcher.localisation[0],
+             lon1 = sportif_a_matcher.localisation[1],
+             lat2 = current_sportif.localisation[0],
+             lon2 = current_sportif.localisation[1]
         )
         
         if (sportif_a_matcher.distance_rencontre < distance_entre_les_deux) or (current_sportif.distance_rencontre < distance_entre_les_deux):
