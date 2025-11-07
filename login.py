@@ -49,8 +49,11 @@ def afficher_bienvenue(prenom):
 
     NATIONALITE = tk.StringVar()
     SPORT1 = tk.StringVar()
+    NIVEAU_SPORT1 = tk.StringVar()
     SPORT2 = tk.StringVar()
+    NIVEAU_SPORT2 = tk.StringVar()
     SPORT3 = tk.StringVar()
+    NIVEAU_SPORT3 = tk.StringVar()
 
 
 
@@ -81,6 +84,8 @@ def afficher_bienvenue(prenom):
 
     # Variable pour stocker le sport sélectionné
     SPORTS = ["Football", "Basketball", "Tennis", "Natation", "Rugby", "Cyclisme"]
+    NIVEAU = ["Débutant", "Intermédiaire", "Avancé", "Pro"]
+
 
 
     label_sport1 = tk.Label(nouvelle_fenetre, text="Choisis ton sport préféré:")
@@ -88,15 +93,32 @@ def afficher_bienvenue(prenom):
     entry_sport1 = ttk.Combobox(nouvelle_fenetre, textvariable=SPORT1, values=SPORTS)
     entry_sport1.place(x=250, y=110)
 
+    label_niveau2 = tk.Label(nouvelle_fenetre, text="Choisis ton niveau:")
+    label_niveau2.place(x=250, y=130)
+    entry_niveau2 = ttk.Combobox(nouvelle_fenetre, textvariable=NIVEAU_SPORT1, values=NIVEAU)
+    entry_niveau2.place(x=250, y=150)
+
+
     label_sport2 = tk.Label(nouvelle_fenetre, text="Choisis ton sport préféré:")
     label_sport2.place(x=400, y=90)
     entry_sport2 = ttk.Combobox(nouvelle_fenetre, textvariable=SPORT2, values=SPORTS)
     entry_sport2.place(x=400, y=110)
 
+    label_niveau2 = tk.Label(nouvelle_fenetre, text="Choisis ton niveau:")
+    label_niveau2.place(x=400, y=130)
+    entry_niveau2 = ttk.Combobox(nouvelle_fenetre, textvariable=NIVEAU_SPORT2, values=NIVEAU)
+    entry_niveau2.place(x=400, y=150)
+
+
     label_sport3 = tk.Label(nouvelle_fenetre, text="Choisis ton sport préféré:")
     label_sport3.place(x=550, y=90)
     entry_sport3 = ttk.Combobox(nouvelle_fenetre, textvariable=SPORT3, values=SPORTS)
     entry_sport3.place(x=550, y=110)
+
+    label_niveau3 = tk.Label(nouvelle_fenetre, text="Choisis ton niveau:")
+    label_niveau3.place(x=550, y=130)
+    entry_niveau3 = ttk.Combobox(nouvelle_fenetre, textvariable=NIVEAU_SPORT3, values=NIVEAU)
+    entry_niveau3.place(x=550, y=150)
 
 
     # Bouton pour fermer la fenêtre
