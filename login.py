@@ -43,6 +43,10 @@ def afficher_bienvenue(prenom):
 
     NOM = tk.StringVar()
     PRENOM = tk.StringVar()
+    SEXE = tk.StringVar()
+    age = tk.IntVar()
+
+    NATIONALITE = tk.StringVar()
 
 
 
@@ -55,6 +59,21 @@ def afficher_bienvenue(prenom):
     label_nom.place(x=50, y=90)
     entry_nom = tk.Entry(nouvelle_fenetre, textvariable=NOM, font=("Arial", 8))
     entry_nom.place(x=50, y=110)
+
+    label_sexe = tk.Label(nouvelle_fenetre, text="Sexe:")
+    label_sexe.place(x=50, y=130)
+    entry_sexe = tk.Entry(nouvelle_fenetre, textvariable=SEXE, font=("Arial", 8))
+    entry_sexe.place(x=50, y=150)
+
+    label_age = tk.Label(nouvelle_fenetre, text="Age:")
+    label_age.place(x=50, y=170)
+    entry_age = tk.Entry(nouvelle_fenetre, textvariable=age, font=("Arial", 8))
+    entry_age.place(x=50, y=190)
+
+    label_nat = tk.Label(nouvelle_fenetre, text="Nationalité:")
+    label_nat.place(x=50, y=210)
+    entry_nat = tk.Entry(nouvelle_fenetre, textvariable=NATIONALITE, font=("Arial", 8))
+    entry_nat.place(x=50, y=230)
 
     # Bouton pour fermer la fenêtre
     button_quitter = tk.Button(nouvelle_fenetre, text="Quitter", command=nouvelle_fenetre.destroy)
